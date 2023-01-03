@@ -5,11 +5,22 @@ import './App.css'
 const App = () => {
   const [squares, setSquares] = useState(Array(9).fill(null))
 
+  const [turn, setTurn] =useState (0)
+
 const handleGamePlay = (clickedSquare) => {
   let updateSquare = [...squares]
-  updateSquare[clickedSquare] = "X"
-  setSquares(updateSquare)
+  if (turn === 0) {
+    updateSquare[clickedSquare] = "X"
+    setSquares(updateSquare)
+    setTurn(1)
+  } else {
+    updateSquare[clickedSquare] = "0"
+    setSquares(updateSquare)
+    setTurn(0)
+  }
 }
+ 
+
 
 
   return (
